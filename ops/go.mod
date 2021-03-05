@@ -23,6 +23,7 @@ require (
 	github.com/tencentcloud/tencentcloud-sdk-go v1.0.108 // indirect
 	go.uber.org/zap v1.16.0
 	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0
+	gopkg.in/ini.v1 v1.62.0
 	k8s.io/api v0.20.1
 	k8s.io/apimachinery v0.20.1
 	k8s.io/client-go v0.20.1

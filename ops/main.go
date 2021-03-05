@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"github.com/chujieyang/commonops/ops/conf"
+	_ "github.com/chujieyang/commonops/ops/conf"
 	"github.com/chujieyang/commonops/ops/controllers"
 	_ "github.com/chujieyang/commonops/ops/cron"
 	"github.com/gin-gonic/gin"
@@ -26,8 +28,7 @@ func main() {
 	engine := gin.Default()
 	engine.Use(optionsMiddleware)
 	controllers.RegisterRouter(engine)
-	err := engine.Run(":" + conf.Port)
-	if err != nil {
-		panic("启动异常: " + err.Error())
+	if err := engine.Run(":" + conf.Port); err != nil {
+		panic(fmt.Sprintf("服务启动异常: %s", err))
 	}
 }

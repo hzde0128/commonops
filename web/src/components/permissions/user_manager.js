@@ -162,11 +162,16 @@ class UserManager extends Component {
                     width: 140,
                     align: "center",
                     render: (text, record) => {
+                        let disabled = false;
+                        if (record.count === 1 && record.email === "admin@ops.com") {
+                            disabled = true;
+                        }
                         return (
                             <div>
                                 <Button
                                     type="primary"
                                     size="small"
+                                    disabled={disabled}
                                     onClick={this.updateUserActiveStatus.bind(
                                         this,
                                         record.email,
@@ -179,6 +184,7 @@ class UserManager extends Component {
                                 <Button
                                     type="danger"
                                     size="small"
+                                    disabled={disabled}
                                     onClick={this.updateUserActiveStatus.bind(
                                         this,
                                         record.email,
@@ -267,6 +273,7 @@ class UserManager extends Component {
                         email: data[i]["email"],
                         position: data[i]["position"],
                         active: data[i]["active"],
+                        count: data.length,
                     });
                 }
                 this.setState({ tableData: tableData, tableLoading: false });

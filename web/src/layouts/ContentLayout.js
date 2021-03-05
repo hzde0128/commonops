@@ -26,7 +26,6 @@ import AuthManageContent from "../components/dms/auth_manage";
 import DataManageContent from "../components/dms/data_manage";
 
 const { Content } = Layout;
-
 class ContentLayout extends Component {
     constructor(props) {
         super(props);
